@@ -1,0 +1,90 @@
+<mat-toolbar color="primary">
+  <a [routerLink]="['/', routes.HOME]" class="logo">
+    <div class="logo-container">
+      @if (logoUrl()) {
+        <img [src]="logoUrl()" [alt]="siteSettings()?.logo?.alt || 'Logo'" class="logo-img" />
+      } @else {
+        <mat-icon>directions_car</mat-icon>
+        <span>Fuess Mobil</span>
+      }
+      @if (slogan()) {
+        <span class="slogan">{{ slogan() }}</span>
+      }
+    </div>
+  </a>
+
+  <span class="spacer"></span>
+
+  <!-- Desktop Navigation -->
+  <nav class="desktop-nav">
+    <a mat-button [routerLink]="['/', routes.HOME]" routerLinkActive="active">{{ navLabels().home }}</a>
+    <a mat-button [routerLink]="['/', routes.ABOUT]" routerLinkActive="active">{{ navLabels().about }}</a>
+    <a mat-button [routerLink]="['/', routes.SERVICES]" routerLinkActive="active">{{ navLabels().services }}</a>
+    <a mat-button [routerLink]="['/', routes.PRICING]" routerLinkActive="active">{{ navLabels().pricing }}</a>
+    <a mat-button [routerLink]="['/', routes.PROCEDURE]" routerLinkActive="active">{{ navLabels().procedure }}</a>
+    <a mat-button [routerLink]="['/', routes.IMPRESSIONS]" routerLinkActive="active">{{ navLabels().impressions }}</a>
+    <a mat-button [routerLink]="['/', routes.REVIEWS]" routerLinkActive="active">{{ navLabels().reviews }}</a>
+    <a mat-button [routerLink]="['/', routes.CONTACT]" routerLinkActive="active">{{ navLabels().contact }}</a>
+
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="language-btn">
+      <mat-icon>language</mat-icon>
+    </button>
+    <mat-menu #languageMenu="matMenu">
+      @for (lang of languageService.availableLanguages; track lang) {
+        <button
+          mat-menu-item
+          (click)="onLanguageChange(lang)"
+          [class.active-language]="languageService.currentLanguage() === lang">
+          <mat-icon>{{ languageService.currentLanguage() === lang ? 'check' : '' }}</mat-icon>
+          <span>{{ languageService.languageNames[lang] }}</span>
+        </button>
+      }
+    </mat-menu>
+  </nav>
+
+  <!-- Mobile Menu Button -->
+  <button mat-icon-button class="mobile-menu-btn" [class.drawer-open]="drawerOpen()" (click)="toggleDrawer()">
+    <mat-icon>{{ drawerOpen() ? 'close' : 'menu' }}</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- Mobile Drawer -->
+<mat-sidenav-container class="drawer-container" [class.drawer-active]="drawerOpen()">
+  <mat-sidenav
+    #drawer
+    mode="over"
+    position="end"
+    [opened]="drawerOpen()"
+    (closed)="closeDrawer()">
+    <div class="drawer-content">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['/', routes.HOME]" (click)="closeDrawer()">{{ navLabels().home }}</a>
+        <a mat-list-item [routerLink]="['/', routes.ABOUT]" (click)="closeDrawer()">{{ navLabels().about }}</a>
+        <a mat-list-item [routerLink]="['/', routes.SERVICES]" (click)="closeDrawer()">{{ navLabels().services }}</a>
+        <a mat-list-item [routerLink]="['/', routes.PRICING]" (click)="closeDrawer()">{{ navLabels().pricing }}</a>
+        <a mat-list-item [routerLink]="['/', routes.PROCEDURE]" (click)="closeDrawer()">{{ navLabels().procedure }}</a>
+        <a mat-list-item [routerLink]="['/', routes.IMPRESSIONS]" (click)="closeDrawer()">{{ navLabels().impressions }}</a>
+        <a mat-list-item [routerLink]="['/', routes.REVIEWS]" (click)="closeDrawer()">{{ navLabels().reviews }}</a>
+        <a mat-list-item [routerLink]="['/', routes.CONTACT]" (click)="closeDrawer()">{{ navLabels().contact }}</a>
+
+        <mat-divider></mat-divider>
+
+        <div class="language-section">
+          <p class="language-title">{{ languageService.currentLanguage().toUpperCase() }}</p>
+          @for (lang of languageService.availableLanguages; track lang) {
+            <a mat-list-item (click)="onLanguageChange(lang); closeDrawer()">
+              <mat-icon>{{ languageService.currentLanguage() === lang ? 'check' : '' }}</mat-icon>
+              <span>{{ languageService.languageNames[lang] }}</span>
+            </a>
+          }
+        </div>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content></mat-sidenav-content>
+</mat-sidenav-container>
+
+<a mat-fab extended [routerLink]="['/', routes.BOOKING]" class="booking-fab" color="primary">
+  <mat-icon>event_available</mat-icon>
+  {{ navLabels().booking }}
+</a>

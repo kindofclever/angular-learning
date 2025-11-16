@@ -1,0 +1,44 @@
+.home-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  gap: 1rem;
+}
+
+.error-card {
+  margin-top: 2rem;
+  background-color: #ffebee;
+}
+
+.error-card mat-card-title {
+  color: #c62828;
+}
+
+.content-card {
+  margin-top: 2rem;
+}
+
+.content-card img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.meta {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.meta p {
+  margin: 0.5rem 0;
+}

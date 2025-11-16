@@ -1,0 +1,68 @@
+<div class="home-container">
+  <h1>Home Page - Sanity CMS Test</h1>
+
+  <!-- Loading State -->
+  @if (loading()) {
+    <div class="loading">
+      <mat-spinner></mat-spinner>
+      <p>Lade Inhalte von Sanity...</p>
+    </div>
+  }
+
+  <!-- Error State -->
+  @else if (error()) {
+    <mat-card class="error-card">
+      <mat-card-header>
+        <mat-card-title>Fehler</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ error() }}</p>
+        <p><strong>Mögliche Ursachen:</strong></p>
+        <ul>
+          <li>Sanity Project ID ist falsch in der .env Datei</li>
+          <li>Das Token hat keine Leserechte</li>
+          <li>Es gibt keine Page mit slug "home" in Sanity</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  <!-- Content State -->
+  @else if (content()) {
+    <mat-card class="content-card">
+      @if (content()!.image) {
+        <img mat-card-image [src]="getImageUrl(content()!.image)" [alt]="content()!.title">
+      }
+
+      <mat-card-header>
+        <mat-card-title>{{ content()!.title }}</mat-card-title>
+        @if (content()!.description) {
+          <mat-card-subtitle>{{ content()!.description }}</mat-card-subtitle>
+        }
+      </mat-card-header>
+
+      <mat-card-content>
+        @if (content()!.content) {
+          <div [innerHTML]="content()!.content"></div>
+        }
+
+        <div class="meta">
+          <p><strong>Document ID:</strong> {{ content()!._id }}</p>
+          <p><strong>Type:</strong> {{ content()!._type }}</p>
+          @if (content()!.publishedAt) {
+            <p><strong>Published:</strong> {{ content()!.publishedAt | date:'medium' }}</p>
+          }
+        </div>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  <!-- No Content -->
+  @else {
+    <mat-card>
+      <mat-card-content>
+        <p>Keine Inhalte gefunden. Bitte erstelle eine Page mit slug "home" in Sanity.</p>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>

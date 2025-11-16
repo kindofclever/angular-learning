@@ -38,6 +38,16 @@ testem.log
 /typings
 __screenshots__/
 
+# Sanity
+.sanity/
+
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+.vscode
