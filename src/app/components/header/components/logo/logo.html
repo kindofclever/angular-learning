@@ -1,0 +1,13 @@
+<a [routerLink]="['/', routes.HOME]" class="logo">
+  <div class="logo-container">
+    @if (logoUrl()) {
+      <img [src]="logoUrl()" [alt]="siteSettings()?.logo?.alt || 'Logo'" class="logo-img" />
+    } @else {
+      <mat-icon>directions_car</mat-icon>
+      <span>Fuess Mobil</span>
+    }
+    @if (slogan()) {
+      <span class="slogan">{{ slogan() }}</span>
+    }
+  </div>
+</a>

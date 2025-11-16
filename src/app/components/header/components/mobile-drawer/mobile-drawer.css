@@ -1,0 +1,89 @@
+:host {
+  display: contents;
+}
+
+.drawer-container {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .drawer-container {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    height: 100vh;
+    pointer-events: none;
+    background: transparent !important;
+  }
+
+  .drawer-container.drawer-active {
+    pointer-events: auto;
+  }
+
+  /* Hide backdrop */
+  .drawer-container ::ng-deep .mat-drawer-backdrop {
+    background-color: transparent !important;
+    opacity: 0 !important;
+  }
+
+  .drawer-container ::ng-deep mat-sidenav-container {
+    background-color: transparent !important;
+  }
+
+  .drawer-container ::ng-deep mat-sidenav {
+    width: 280px;
+    background-color: var(--color-primary) !important;
+    color: white !important;
+    pointer-events: auto;
+  }
+
+  .drawer-container ::ng-deep .mat-drawer-inner-container {
+    background-color: var(--color-primary) !important;
+  }
+
+  .drawer-container ::ng-deep mat-sidenav-content {
+    background: transparent !important;
+    pointer-events: none;
+  }
+}
+
+.drawer-content {
+  padding: 1rem 0;
+  background-color: var(--color-primary) !important;
+  height: 100%;
+}
+
+.drawer-content ::ng-deep mat-nav-list {
+  background-color: var(--color-primary) !important;
+  padding: 0 !important;
+}
+
+.drawer-content ::ng-deep mat-nav-list .mat-mdc-list-item {
+  color: white !important;
+}
+
+.drawer-content ::ng-deep mat-nav-list a {
+  color: white !important;
+  text-decoration: none;
+}
+
+.drawer-content ::ng-deep mat-nav-list a .mdc-list-item__content {
+  color: white !important;
+}
+
+.drawer-content ::ng-deep mat-nav-list a mat-icon {
+  color: white !important;
+}
+
+.drawer-content ::ng-deep mat-nav-list a:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.drawer-content ::ng-deep mat-divider {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-top-color: rgba(255, 255, 255, 0.2) !important;
+}

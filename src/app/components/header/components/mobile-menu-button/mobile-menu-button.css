@@ -1,0 +1,17 @@
+.mobile-menu-btn {
+  display: none;
+}
+
+.mobile-menu-btn mat-icon {
+  color: var(--color-primary);
+}
+
+.mobile-menu-btn.drawer-open mat-icon {
+  color: var(--color-accent);
+}
+
+@media (max-width: 1024px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+}

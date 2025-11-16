@@ -4,78 +4,14 @@ mat-toolbar {
   padding: 1.5rem 2rem;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.logo-container {
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  gap: 2rem;
-  padding-top: 4rem;
-}
-
-.logo mat-icon {
-  font-size: 2rem;
-  width: 2rem;
-  height: 2rem;
-}
-
-.logo-img {
-  height: 180px;
-  max-width: 600px;
-  object-fit: contain;
-  margin-bottom: -0.75rem;
-}
-
-.slogan {
-  font-size: 1.1rem;
-  font-weight: 400;
-  font-style: normal;
-  opacity: 0.95;
-  white-space: nowrap;
-}
-
 .spacer {
   flex: 1 1 auto;
 }
 
-nav {
+.desktop-nav {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  transition: background-color 0.2s;
-}
-
-nav a.active {
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.language-btn {
-  color: white;
-  margin-left: 0.5rem;
-}
-
-.active-language {
-  background-color: rgba(0, 0, 0, 0.08);
-  font-weight: 600;
 }
 
 .booking-fab {
@@ -95,97 +31,13 @@ nav a:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Mobile Drawer Styles */
-.mobile-menu-btn {
-  display: none;
-}
-
-.mobile-menu-btn mat-icon {
-  color: var(--color-blue);
-}
-
-.mobile-menu-btn.drawer-open mat-icon {
-  color: white;
-}
-
-.drawer-container {
-  display: none;
-}
-
-@media (max-width: 1024px) {
-  .drawer-container {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
-    height: 100vh;
-    pointer-events: none;
-  }
-
-  .drawer-container.drawer-active {
-    pointer-events: auto;
-  }
-
-  .drawer-container mat-sidenav {
-    width: 280px;
-    background-color: var(--color-primary);
-    pointer-events: auto;
-  }
-
-  .drawer-container mat-sidenav-content {
-    background: transparent;
-    pointer-events: none;
-  }
-}
-
-.drawer-content {
-  padding: 1rem 0;
-}
-
-.drawer-content mat-nav-list a {
-  color: white;
-  text-decoration: none;
-}
-
-.language-section {
-  padding: 1rem;
-}
-
-.language-title {
-  color: white;
-  font-weight: 600;
-  margin: 0.5rem 0;
-  padding: 0 1rem;
-  opacity: 0.7;
-}
-
 /* Responsive Breakpoint */
 @media (max-width: 1024px) {
   .desktop-nav {
     display: none !important;
   }
 
-  .mobile-menu-btn {
-    display: block;
-  }
-
   mat-toolbar {
     min-height: 140px;
-  }
-
-  .logo-container {
-    padding-top: 2rem;
-  }
-
-  .logo-img {
-    height: 100px;
-    max-width: 300px;
-  }
-
-  .slogan {
-    font-size: 0.9rem;
   }
 }

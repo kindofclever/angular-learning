@@ -1,0 +1,33 @@
+<mat-sidenav-container class="drawer-container" [class.drawer-active]="isOpen">
+  <mat-sidenav #drawer mode="over" position="end" [opened]="isOpen" (closed)="onClose()">
+    <div class="drawer-content">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['/', routes.HOME]" (click)="onClose()">{{ navLabels().home }}</a>
+        <a mat-list-item [routerLink]="['/', routes.ABOUT]" (click)="onClose()">{{ navLabels().about }}</a>
+        <a mat-list-item [routerLink]="['/', routes.SERVICES]" (click)="onClose()">{{
+          navLabels().services
+        }}</a>
+        <a mat-list-item [routerLink]="['/', routes.PRICING]" (click)="onClose()">{{
+          navLabels().pricing
+        }}</a>
+        <a mat-list-item [routerLink]="['/', routes.PROCEDURE]" (click)="onClose()">{{
+          navLabels().procedure
+        }}</a>
+        <a mat-list-item [routerLink]="['/', routes.IMPRESSIONS]" (click)="onClose()">{{
+          navLabels().impressions
+        }}</a>
+        <a mat-list-item [routerLink]="['/', routes.REVIEWS]" (click)="onClose()">{{
+          navLabels().reviews
+        }}</a>
+        <a mat-list-item [routerLink]="['/', routes.CONTACT]" (click)="onClose()">{{
+          navLabels().contact
+        }}</a>
+
+        <mat-divider></mat-divider>
+
+        <app-language-selector mode="mobile" [onLanguageChange]="onLanguageChange"></app-language-selector>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content></mat-sidenav-content>
+</mat-sidenav-container>

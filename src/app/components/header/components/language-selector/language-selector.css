@@ -1,0 +1,44 @@
+/* Desktop Mode */
+.language-btn {
+  color: white !important;
+  margin-left: 0.5rem;
+}
+
+.active-language {
+  background-color: rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+}
+
+/* Mobile Mode */
+.language-section {
+  padding: 1rem;
+  background-color: var(--color-primary) !important;
+}
+
+.language-section ::ng-deep a {
+  color: white !important;
+}
+
+.language-section ::ng-deep .mat-mdc-list-item {
+  color: white !important;
+}
+
+.language-section ::ng-deep .mdc-list-item__content {
+  color: white !important;
+}
+
+.language-section ::ng-deep a mat-icon {
+  color: white !important;
+}
+
+.language-section ::ng-deep mat-icon {
+  color: white !important;
+}
+
+.language-title {
+  color: white !important;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  padding: 0 1rem;
+  opacity: 0.7;
+}
