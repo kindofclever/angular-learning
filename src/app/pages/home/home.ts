@@ -6,12 +6,8 @@ import { PageBuilderComponent, type PageBuilderData } from '../../components/pag
 @Component({
   selector: 'app-home',
   imports: [CommonModule, PageBuilderComponent],
-  template: `
-    <div class="page-container">
-      <app-page-builder [pageData]="pageData()" />
-    </div>
-  `,
-  styles: ``,
+  templateUrl: './home.html',
+  styleUrl: './home.css',
 })
 export class Home implements OnInit {
   private sanity = inject(SanityService);
